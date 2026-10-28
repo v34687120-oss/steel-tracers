@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   'use strict';
 
   const cfg = window.STEEL_TRACERS_CONFIG || {};
@@ -13,6 +13,8 @@
   const recordsBody = $('#records-body');
   const modal = $('#tank-modal');
   const modalContent = $('#modal-content');
+
+  const asset = (url) => `${url}?v=${encodeURIComponent(cfg.version || '1')}`;
 
   const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -143,7 +145,7 @@
         <span class="tank-card-img">
           <span class="nation-tag">${esc(tank.nationName)}</span>
           <span class="br-badge">${esc(num(tank.br, 1))}</span>
-          <img src="${esc(tank.image)}" alt="${esc(tank.name)}" loading="lazy">
+          <img src="${esc(asset(tank.image))}" alt="${esc(tank.name)}" loading="lazy">
         </span>
         <span class="tank-card-body">
           <span class="tank-card-class">${esc(tank.class)} · Ур. ${esc(tank.tier)}</span>
@@ -191,7 +193,7 @@
         <td class="record-category">${esc(category)}</td>
         <td>
           <span class="record-tank">
-            <img src="${esc(tank.image)}" alt="" loading="eager">
+            <img src="${esc(asset(tank.image))}" alt="" loading="eager">
             <b>${esc(tank.name)}</b>
           </span>
         </td>
@@ -227,7 +229,7 @@
     const crew = (tank.crewList || []).map((name) => `<li><span>${esc(name)}</span></li>`).join('');
 
     modalContent.innerHTML = `
-      <div class="modal-hero"><img src="${esc(tank.image)}" alt="${esc(tank.name)}"></div>
+      <div class="modal-hero"><img src="${esc(asset(tank.image))}" alt="${esc(tank.name)}"></div>
       <div class="modal-head">
         <div class="modal-kicker">${esc(tank.nationName)} · ${esc(tank.class)} · Уровень ${esc(tank.tier)}</div>
         <h2>${esc(tank.name)}</h2>
@@ -325,3 +327,4 @@
     boot();
   }
 })();
+
