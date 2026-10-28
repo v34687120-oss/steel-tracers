@@ -59,6 +59,45 @@ button { cursor: pointer; }
   mix-blend-mode: soft-light;
 }
 
+/* ---------- Gate ---------- */
+body.gate-locked { overflow: hidden; }
+.gate {
+  position: fixed; inset: 0; z-index: 200; display: grid; place-items: center;
+  padding: 24px; background:
+    radial-gradient(ellipse at 50% 35%, rgba(230,161,60,.12), transparent 55%),
+    #070908;
+}
+.gate[hidden] { display: none; }
+.gate-card {
+  width: min(430px, 100%); padding: clamp(26px, 5vw, 44px);
+  background: linear-gradient(155deg, #171c15, #0d100d);
+  border: 1px solid var(--line-strong); box-shadow: 0 30px 100px rgba(0,0,0,.65);
+  text-align: center;
+}
+.gate-mark { width: 56px; height: 56px; margin: 0 auto 18px; }
+.gate-mark svg { width: 100%; height: 100%; fill: var(--text); }
+.gate-mark .turret { fill: var(--amber); }
+.gate-mark .barrel { fill: var(--text); }
+.gate-kicker { display: block; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.gate-card h2 { margin: 0 0 10px; font-family: var(--font-display); font-size: 42px; letter-spacing: .04em; line-height: 1; }
+.gate-card p { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+.gate form { display: flex; gap: 8px; }
+.gate input {
+  flex: 1; min-width: 0; height: 48px; border: 1px solid var(--line-strong);
+  background: #0a0d0a; color: var(--text); padding: 0 14px; text-align: center;
+  font-family: var(--font-display); font-size: 24px; letter-spacing: .3em;
+  text-transform: uppercase; outline: none;
+}
+.gate input:focus { border-color: var(--amber); }
+.gate button {
+  height: 48px; padding: 0 22px; border: 1px solid var(--amber);
+  background: var(--amber); color: #15170f; font-size: 12px; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.gate button:hover { background: var(--amber-2); }
+.gate-error { min-height: 18px; margin: 12px 0 0 !important; color: var(--red) !important; font-size: 12px !important; }
+.gate-note { margin: 6px 0 0 !important; color: var(--dim) !important; font-size: 11px !important; }
+
 /* ---------- Header ---------- */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;

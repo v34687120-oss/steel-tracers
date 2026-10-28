@@ -3,16 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <title>Steel Tracers — тактический танковый симулятор 1928–1945</title>
-  <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 36 машин СССР и Германии: модули и прочность корпуса, ремонт, пожары, экипаж и сетевые бои 1×1.">
+  <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 38 машин СССР и Германии: модули и прочность корпуса, ремонт, пожары, экипаж и сетевые бои 1×1.">
   <meta property="og:title" content="Steel Tracers">
   <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows.">
   <meta property="og:image" content="assets/img/hero.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="gate-locked">
   <div class="noise" aria-hidden="true"></div>
+
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Закрытый доступ">
+    <div class="gate-card">
+      <div class="gate-mark">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M5 30h6l3-7h20l3 7h6v7H5z"/>
+          <path d="M15 20h18v6H15z" class="turret"/>
+          <path d="M27 22h16v3H27z" class="barrel"/>
+          <circle cx="13" cy="38" r="3.5"/><circle cx="24" cy="38" r="3.5"/>
+          <circle cx="35" cy="38" r="3.5"/>
+        </svg>
+      </div>
+      <span class="gate-kicker">ЗАКРЫТЫЙ ДОСТУП</span>
+      <h2>STEEL TRACERS</h2>
+      <p>Введите шестизначный пароль. Буквы — заглавные.</p>
+      <form id="gate-form" autocomplete="off">
+        <input id="gate-password" type="password" inputmode="text" maxlength="6" placeholder="••••••" aria-label="Пароль" autocomplete="off" spellcheck="false">
+        <button type="submit">ВОЙТИ</button>
+      </form>
+      <p class="gate-error" id="gate-error" aria-live="polite"></p>
+      <p class="gate-note">Доступ только по прямой ссылке. Сайт не индексируется поисковиками.</p>
+    </div>
+  </div>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Steel Tracers — на главную">
@@ -51,7 +75,7 @@
         <h1>СТАЛЬ<br><em>РЕШАЕТ</em></h1>
         <p class="hero-lead">
           Наполовину про модули и экипаж, наполовину про прочность корпуса. Попадание бьёт по конкретному узлу, а не только снимает полоску.
-          36 машин СССР и Германии, честная броня и бой, который продолжается,
+          38 машин СССР и Германии, честная броня и бой, который продолжается,
           даже когда твой танк уже горит.
         </p>
         <div class="hero-actions">
@@ -62,14 +86,14 @@
           <a class="btn btn-ghost btn-large" href="#tanks">Смотреть технику</a>
         </div>
         <div class="hero-meta">
-          <div><strong id="stat-tanks">36</strong><span>машины</span></div>
+          <div><strong id="stat-tanks">38</strong><span>машины</span></div>
           <div><strong>2</strong><span>нации</span></div>
           <div><strong>1.0–8.0</strong><span>боевой рейтинг</span></div>
           <div><strong id="stat-size">40 МБ</strong><span>Windows 10/11</span></div>
         </div>
       </div>
       <div class="hero-version">
-        <span class="pulse"></span> СБОРКА <b id="version-badge">0.9.3</b>
+        <span class="pulse"></span> СБОРКА <b id="version-badge">0.9.4</b>
       </div>
       <a class="scroll-hint" href="#about" aria-label="Листать вниз"><span></span></a>
     </section>
@@ -202,7 +226,7 @@
             <code>SteelTracers.exe</code>. Установка не нужна.
           </p>
           <div class="download-meta">
-            <div><span>Версия</span><strong id="download-version">0.9.3</strong></div>
+            <div><span>Версия</span><strong id="download-version">0.9.4</strong></div>
             <div><span>Платформа</span><strong>Windows 10/11 · x64</strong></div>
             <div><span>Размер</span><strong id="download-size">40 МБ</strong></div>
             <div><span>Обновлено</span><strong id="download-date">28.10.2026</strong></div>
@@ -236,6 +260,18 @@
         <p>Сайт обновляется вместе с игрой: техника, характеристики и ссылка на сборку.</p>
       </div>
       <ol class="timeline" id="timeline">
+        <li>
+          <div class="timeline-date">28.10.2026</div>
+          <div class="timeline-body">
+            <h3>0.9.4 — КВ-2, Brummbar и закрытый доступ</h3>
+            <ul>
+              <li>СССР: КВ-2 со 152-мм гаубицей — новый рекорд по калибру.</li>
+              <li>Германия: Brummbar, 150-мм штурмовое орудие.</li>
+              <li>ИС-2 1944 перенесён из сверхтяжёлых в тяжёлые; в сверхтяжёлых теперь ИС-3 и Maus.</li>
+              <li>Сайт закрыт паролем, добавлены noindex и robots.txt.</li>
+            </ul>
+          </div>
+        </li>
         <li>
           <div class="timeline-date">28.10.2026</div>
           <div class="timeline-body">
@@ -307,9 +343,12 @@
   </dialog>
 
   <script src="config.js"></script>
+  <script src="assets/js/gate.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
+
+
 
 
 

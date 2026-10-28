@@ -180,6 +180,7 @@
       ['Лучшая лобовая броня', best((t) => t.armor.front, 'max'), (t) => num(t.armor.front) + ' мм'],
       ['Лучшее пробитие', best((t) => bestShell(t, 'pen'), 'max'), (t) => num(bestShell(t, 'pen')) + ' мм'],
       ['Самый большой урон', best((t) => bestShell(t, 'damage'), 'max'), (t) => num(bestShell(t, 'damage')) + ' ед.'],
+      ['Самый большой калибр', best((t) => t.caliber || 0, 'max'), (t) => num(t.caliber) + ' мм'],
       ['Самый большой экипаж', best((t) => t.crew, 'max'), (t) => num(t.crew) + ' чел.'],
       ['Самый высокий БР', best((t) => t.br, 'max'), (t) => num(t.br, 1)],
       ['Самая дешёвая покупка', best((t) => t.gold, 'min'), (t) => num(t.gold) + ' Gold']
