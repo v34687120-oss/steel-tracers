@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Steel Tracers — тактический танковый симулятор 1928–1945</title>
-  <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 33 машины СССР и Германии, модульные повреждения, ремонт, пожары, экипаж и сетевые бои 1×1.">
+  <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 36 машин СССР и Германии: модули и прочность корпуса, ремонт, пожары, экипаж и сетевые бои 1×1.">
   <meta property="og:title" content="Steel Tracers">
   <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows.">
   <meta property="og:image" content="assets/img/hero.png">
@@ -30,6 +30,7 @@
       <a href="#about">Об игре</a>
       <a href="#media">Кадры</a>
       <a href="#tanks">Техника</a>
+      <a href="#records">Рекорды</a>
       <a href="#updates">Обновления</a>
       <a href="#download">Скачать</a>
     </nav>
@@ -49,8 +50,8 @@
         <div class="eyebrow"><span class="eyebrow-line"></span> Танковый симулятор · 1928–1945</div>
         <h1>СТАЛЬ<br><em>РЕШАЕТ</em></h1>
         <p class="hero-lead">
-          Не аркада про полоску HP. Модули, экипаж, пожары и ремонт под огнём.
-          33 машины СССР и Германии, честная броня и бой, который продолжается,
+          Наполовину про модули и экипаж, наполовину про прочность корпуса. Попадание бьёт по конкретному узлу, а не только снимает полоску.
+          36 машин СССР и Германии, честная броня и бой, который продолжается,
           даже когда твой танк уже горит.
         </p>
         <div class="hero-actions">
@@ -61,14 +62,14 @@
           <a class="btn btn-ghost btn-large" href="#tanks">Смотреть технику</a>
         </div>
         <div class="hero-meta">
-          <div><strong id="stat-tanks">33</strong><span>машины</span></div>
+          <div><strong id="stat-tanks">36</strong><span>машины</span></div>
           <div><strong>2</strong><span>нации</span></div>
           <div><strong>1.0–8.0</strong><span>боевой рейтинг</span></div>
           <div><strong id="stat-size">40 МБ</strong><span>Windows 10/11</span></div>
         </div>
       </div>
       <div class="hero-version">
-        <span class="pulse"></span> СБОРКА <b id="version-badge">0.9.2</b>
+        <span class="pulse"></span> СБОРКА <b id="version-badge">0.9.3</b>
       </div>
       <a class="scroll-hint" href="#about" aria-label="Листать вниз"><span></span></a>
     </section>
@@ -76,9 +77,9 @@
     <section class="section about" id="about">
       <div class="section-head">
         <span class="section-kicker">01 / Об игре</span>
-        <h2>Танк — это не полоска здоровья</h2>
+        <h2>Модули, экипаж и прочность</h2>
         <p>
-          Попадание в гусеницу срывает трак. Попадание в моторный отсек — пожар.
+          У машины есть общая прочность корпуса, но попадание в гусеницу срывает трак, в моторный отсек — вызывает пожар.
           Ствол можно разорвать, башню заклинить, а экипаж — контузить.
           После боя машина не «восстанавливается сама»: её чинят.
         </p>
@@ -88,7 +89,7 @@
         <article class="feature">
           <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 15h16v4H4zM7 11h6l2 4H7zM13 12h7v2h-7zM6 19a2 2 0 1 0 0 .1M18 19a2 2 0 1 0 0 .1"/></svg></div>
           <h3>Модульные повреждения</h3>
-          <p>12 модулей: ствол, затвор, башня, двигатель, трансмиссия, гусеницы, боеукладка. У каждого свой хитбокс и своя броня.</p>
+          <p>12 модулей и общая прочность корпуса: ствол, затвор, башня, двигатель, трансмиссия, гусеницы, боеукладка. У каждого свой хитбокс и своя броня.</p>
         </article>
         <article class="feature">
           <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14 6a3 3 0 1 0-2 5l-7 7 2 2 7-7a3 3 0 0 0 5-2l-3 1-2-2z"/></svg></div>
@@ -172,17 +173,36 @@
       <div class="tank-empty" id="tank-empty" hidden>Ничего не найдено. Поменяй фильтры.</div>
     </section>
 
+    <section class="section records-section" id="records">
+      <div class="section-head section-head-row">
+        <div>
+          <span class="section-kicker">03 / Рекорды</span>
+          <h2>Кто в чём первый</h2>
+          <p>Рекорды считаются автоматически по текущим характеристикам техники: скорость, масса, броня, орудие и экипаж.</p>
+        </div>
+        <div class="tank-count"><strong id="records-count">—</strong><span>рекордов</span></div>
+      </div>
+      <div class="records-wrap">
+        <table class="records-table">
+          <thead>
+            <tr><th>Категория</th><th>Машина</th><th>Нация</th><th>Значение</th></tr>
+          </thead>
+          <tbody id="records-body"></tbody>
+        </table>
+      </div>
+    </section>
+
     <section class="section download-section" id="download">
       <div class="download-panel">
         <div class="download-copy">
-          <span class="section-kicker">03 / Скачать</span>
+          <span class="section-kicker">04 / Скачать</span>
           <h2>В бой</h2>
           <p>
             Бесплатная сборка для Windows. Распакуй архив и запусти
             <code>SteelTracers.exe</code>. Установка не нужна.
           </p>
           <div class="download-meta">
-            <div><span>Версия</span><strong id="download-version">0.9.2</strong></div>
+            <div><span>Версия</span><strong id="download-version">0.9.3</strong></div>
             <div><span>Платформа</span><strong>Windows 10/11 · x64</strong></div>
             <div><span>Размер</span><strong id="download-size">40 МБ</strong></div>
             <div><span>Обновлено</span><strong id="download-date">28.10.2026</strong></div>
@@ -211,11 +231,23 @@
 
     <section class="section updates" id="updates">
       <div class="section-head">
-        <span class="section-kicker">04 / Обновления</span>
+        <span class="section-kicker">05 / Обновления</span>
         <h2>Дневник сборки</h2>
         <p>Сайт обновляется вместе с игрой: техника, характеристики и ссылка на сборку.</p>
       </div>
       <ol class="timeline" id="timeline">
+        <li>
+          <div class="timeline-date">28.10.2026</div>
+          <div class="timeline-body">
+            <h3>0.9.3 — Т-28, Т-28Э и Пума</h3>
+            <ul>
+              <li>СССР: Т-28 и экранированный Т-28Э на БР 2.7–3.0, между БТ-7 и Т-34.</li>
+              <li>Германия: Пума — самая быстрая машина в игре, 90 км/ч.</li>
+              <li>На сайте появилась таблица рекордов: скорость, масса, броня, орудие, экипаж.</li>
+              <li>Описание игры исправлено: половина про модули и экипаж, половина про прочность корпуса.</li>
+            </ul>
+          </div>
+        </li>
         <li>
           <div class="timeline-date">28.10.2026</div>
           <div class="timeline-body">
@@ -261,6 +293,7 @@
     </div>
     <div class="footer-links">
       <a href="#tanks">Техника</a>
+      <a href="#records">Рекорды</a>
       <a href="#updates">Обновления</a>
       <a href="#download">Скачать</a>
       <a href="#top">Наверх ↑</a>
@@ -277,6 +310,10 @@
   <script src="assets/js/app.js"></script>
 </body>
 </html>
+
+
+
+
 
 
 

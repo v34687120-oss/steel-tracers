@@ -10,6 +10,7 @@
   const grid = $('#tank-grid');
   const empty = $('#tank-empty');
   const visibleCount = $('#visible-count');
+  const recordsBody = $('#records-body');
   const modal = $('#tank-modal');
   const modalContent = $('#modal-content');
 
@@ -156,6 +157,51 @@
       </button>`;
   }
 
+  function renderRecords() {
+    if (!recordsBody || state.tanks.length === 0) return;
+
+    const best = (getter, direction) => {
+      const sign = direction === 'min' ? -1 : 1;
+      return state.tanks.reduce((winner, tank) => {
+        if (!winner) return tank;
+        return sign * getter(tank) > sign * getter(winner) ? tank : winner;
+      }, null);
+    };
+
+    const bestShell = (tank, key) => {
+      const shells = tank.shells || [];
+      return shells.reduce((value, shell) => Math.max(value, Number(shell[key]) || 0), 0);
+    };
+
+    const rows = [
+      ['Самая быстрая', best((t) => t.speed, 'max'), (t) => num(t.speed) + ' км/ч'],
+      ['Самая тяжёлая', best((t) => t.mass, 'max'), (t) => num(t.mass, 1) + ' т'],
+      ['Самая лёгкая', best((t) => t.mass, 'min'), (t) => num(t.mass, 1) + ' т'],
+      ['Лучшая лобовая броня', best((t) => t.armor.front, 'max'), (t) => num(t.armor.front) + ' мм'],
+      ['Лучшее пробитие', best((t) => bestShell(t, 'pen'), 'max'), (t) => num(bestShell(t, 'pen')) + ' мм'],
+      ['Самый большой урон', best((t) => bestShell(t, 'damage'), 'max'), (t) => num(bestShell(t, 'damage')) + ' ед.'],
+      ['Самый большой экипаж', best((t) => t.crew, 'max'), (t) => num(t.crew) + ' чел.'],
+      ['Самый высокий БР', best((t) => t.br, 'max'), (t) => num(t.br, 1)],
+      ['Самая дешёвая покупка', best((t) => t.gold, 'min'), (t) => num(t.gold) + ' Gold']
+    ].filter((row) => row[1]);
+
+    recordsBody.innerHTML = rows.map(([category, tank, value]) => `
+      <tr>
+        <td class="record-category">${esc(category)}</td>
+        <td>
+          <span class="record-tank">
+            <img src="${esc(tank.image)}" alt="" loading="eager">
+            <b>${esc(tank.name)}</b>
+          </span>
+        </td>
+        <td class="record-nation">${esc(tank.nationName)} · ${esc(tank.class)}</td>
+        <td class="record-value">${esc(value(tank))}</td>
+      </tr>`).join('');
+
+    const counter = document.getElementById('records-count');
+    if (counter) counter.textContent = String(rows.length);
+  }
+
   function render() {
     if (!grid) return;
 
@@ -263,6 +309,7 @@
       if (total) total.textContent = String(state.tanks.length);
 
       render();
+      renderRecords();
     } catch (error) {
       if (grid) {
         grid.innerHTML = '<p class="tank-empty">Не удалось загрузить данные техники. Открой сайт через локальный сервер или проверь data/tanks.json.</p>';
