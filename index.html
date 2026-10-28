@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steel Tracers — тактический танковый симулятор 1928–1945</title>
+  <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 33 машины СССР и Германии, модульные повреждения, ремонт, пожары, экипаж и сетевые бои 1×1.">
+  <meta property="og:title" content="Steel Tracers">
+  <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows.">
+  <meta property="og:image" content="assets/img/hero.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Steel Tracers — на главную">
+      <svg viewBox="0 0 48 48" class="brand-mark" aria-hidden="true">
+        <path d="M5 30h6l3-7h20l3 7h6v7H5z"/>
+        <path d="M15 20h18v6H15z" class="turret"/>
+        <path d="M27 22h16v3H27z" class="barrel"/>
+        <circle cx="13" cy="38" r="3.5"/><circle cx="24" cy="38" r="3.5"/>
+        <circle cx="35" cy="38" r="3.5"/>
+      </svg>
+      <span>STEEL<span>TRACERS</span></span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="#about">Об игре</a>
+      <a href="#media">Кадры</a>
+      <a href="#tanks">Техника</a>
+      <a href="#updates">Обновления</a>
+      <a href="#download">Скачать</a>
+    </nav>
+
+    <a class="btn btn-small btn-amber header-cta" id="header-download" href="#download">Скачать</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-tank" aria-hidden="true"><img src="assets/img/hero-tank.png" alt=""></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> Танковый симулятор · 1928–1945</div>
+        <h1>СТАЛЬ<br><em>РЕШАЕТ</em></h1>
+        <p class="hero-lead">
+          Не аркада про полоску HP. Модули, экипаж, пожары и ремонт под огнём.
+          33 машины СССР и Германии, честная броня и бой, который продолжается,
+          даже когда твой танк уже горит.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-amber btn-large" id="hero-download" href="#download">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+            Скачать для Windows
+          </a>
+          <a class="btn btn-ghost btn-large" href="#tanks">Смотреть технику</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong id="stat-tanks">33</strong><span>машины</span></div>
+          <div><strong>2</strong><span>нации</span></div>
+          <div><strong>1.0–8.0</strong><span>боевой рейтинг</span></div>
+          <div><strong id="stat-size">40 МБ</strong><span>Windows 10/11</span></div>
+        </div>
+      </div>
+      <div class="hero-version">
+        <span class="pulse"></span> СБОРКА <b id="version-badge">0.9.0</b>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="Листать вниз"><span></span></a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-head">
+        <span class="section-kicker">01 / Об игре</span>
+        <h2>Танк — это не полоска здоровья</h2>
+        <p>
+          Попадание в гусеницу срывает трак. Попадание в моторный отсек — пожар.
+          Ствол можно разорвать, башню заклинить, а экипаж — контузить.
+          После боя машина не «восстанавливается сама»: её чинят.
+        </p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 15h16v4H4zM7 11h6l2 4H7zM13 12h7v2h-7zM6 19a2 2 0 1 0 0 .1M18 19a2 2 0 1 0 0 .1"/></svg></div>
+          <h3>Модульные повреждения</h3>
+          <p>12 модулей: ствол, затвор, башня, двигатель, трансмиссия, гусеницы, боеукладка. У каждого свой хитбокс и своя броня.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14 6a3 3 0 1 0-2 5l-7 7 2 2 7-7a3 3 0 0 0 5-2l-3 1-2-2z"/></svg></div>
+          <h3>Ремонт под огнём</h3>
+          <p>F — ремонт. Пока чинишься, машина стоит. Союзник рядом ускоряет работу вдвое и получает +50 Gold.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9z"/><path d="M12 13c1 1.5 2 2.5 2 4a2 2 0 0 1-4 0c0-1.5 1-2.5 2-4z"/></svg></div>
+          <h3>Пожар и два заряда</h3>
+          <p>Двигатель горит. Клавиша 6 — огнетушитель, всего два заряда. Кончились — танк догорает до конца.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3M4 21h16"/></svg></div>
+          <h3>Живой экипаж</h3>
+          <p>Механик, наводчик, командир, заряжающий. Контузия выключает человека на 5 секунд, ранение — навсегда.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/><path d="M2 9h2M20 9h2M2 15h2M20 15h2"/></svg></div>
+          <h3>Умный ИИ</h3>
+          <p>Боты берут точку, чинятся, тушат пожары, помогают союзникам и целятся в модули. Игрок для них — приоритетная цель.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12l8-5M8 12l8 5"/></svg></div>
+          <h3>Сеть 1×1</h3>
+          <p>Прямое подключение по IP или через интернет. Хост авторитетен: попадания, броня и модули считаются на его стороне.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="media-strip" id="media">
+      <figure class="shot shot-wide">
+        <img src="assets/img/hero.png" alt="Бой в Steel Tracers" loading="lazy">
+        <figcaption><span>01</span> Бой на Восточном фронте</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fire.png" alt="Горящий танк" loading="lazy">
+        <figcaption><span>02</span> Пожар двигателя</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/damaged-t34.png" alt="Повреждённый Т-34" loading="lazy">
+        <figcaption><span>03</span> Сбитая гусеница и разорванный ствол</figcaption>
+      </figure>
+    </section>
+
+    <section class="section tanks-section" id="tanks">
+      <div class="section-head section-head-row">
+        <div>
+          <span class="section-kicker">02 / Техника</span>
+          <h2>Полная линейка</h2>
+          <p>От МС-1 и Pz.Kpfw. I до ИС-3, Tiger II и Maus. Характеристики берутся прямо из игровых данных.</p>
+        </div>
+        <div class="tank-count"><strong id="visible-count">—</strong><span>машин в фильтре</span></div>
+      </div>
+
+      <div class="tank-toolbar">
+        <div class="tabs" id="nation-tabs" role="tablist" aria-label="Нация">
+          <button class="tab is-active" data-nation="all" role="tab" aria-selected="true">Все</button>
+          <button class="tab" data-nation="ussr" role="tab" aria-selected="false">СССР</button>
+          <button class="tab" data-nation="germany" role="tab" aria-selected="false">Германия</button>
+        </div>
+        <div class="toolbar-right">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg>
+            <input id="tank-search" type="search" placeholder="Поиск по названию…" autocomplete="off">
+          </label>
+          <label class="select-wrap">
+            <span class="sr-only">Класс</span>
+            <select id="class-filter">
+              <option value="all">Все классы</option>
+              <option value="Лёгкий танк">Лёгкие</option>
+              <option value="Средний танк">Средние</option>
+              <option value="Тяжёлый танк">Тяжёлые</option>
+              <option value="Сверхтяжёлый танк">Сверхтяжёлые</option>
+              <option value="ПТ-САУ">ПТ-САУ</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="tank-grid" id="tank-grid" aria-live="polite"></div>
+      <div class="tank-empty" id="tank-empty" hidden>Ничего не найдено. Поменяй фильтры.</div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="download-panel">
+        <div class="download-copy">
+          <span class="section-kicker">03 / Скачать</span>
+          <h2>В бой</h2>
+          <p>
+            Бесплатная сборка для Windows. Распакуй архив и запусти
+            <code>SteelTracers.exe</code>. Установка не нужна.
+          </p>
+          <div class="download-meta">
+            <div><span>Версия</span><strong id="download-version">0.9.0</strong></div>
+            <div><span>Платформа</span><strong>Windows 10/11 · x64</strong></div>
+            <div><span>Размер</span><strong id="download-size">40 МБ</strong></div>
+            <div><span>Обновлено</span><strong id="download-date">28.10.2026</strong></div>
+          </div>
+          <a class="btn btn-amber btn-large download-btn" id="download-button" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+            Скачать Steel Tracers
+          </a>
+          <p class="download-note" id="download-note">
+            Если Windows показывает предупреждение SmartScreen, нажми «Подробнее» → «Выполнить всё равно».
+          </p>
+        </div>
+        <div class="download-art" aria-hidden="true">
+          <div class="hazard"></div>
+          <svg viewBox="0 0 200 120" class="download-tank">
+            <path d="M20 78h40l10-18h72l10 18h28v22H20z"/>
+            <path d="M70 50h58v16H70z"/>
+            <path d="M100 55h78v6h-78z"/>
+            <circle cx="45" cy="100" r="9"/><circle cx="78" cy="100" r="9"/>
+            <circle cx="118" cy="100" r="9"/><circle cx="155" cy="100" r="9"/>
+          </svg>
+          <div class="download-stamp">WIN64<br><span>READY FOR BATTLE</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section updates" id="updates">
+      <div class="section-head">
+        <span class="section-kicker">04 / Обновления</span>
+        <h2>Дневник сборки</h2>
+        <p>Сайт обновляется вместе с игрой: техника, характеристики и ссылка на сборку.</p>
+      </div>
+      <ol class="timeline" id="timeline">
+        <li>
+          <div class="timeline-date">28.10.2026</div>
+          <div class="timeline-body">
+            <h3>0.9.0 — бета</h3>
+            <ul>
+              <li>Модульные хитбоксы гусениц, двигателя, башни и ствола.</li>
+              <li>Контузии экипажа, ремонт, пожары и два огнетушителя.</li>
+              <li>Экономика: Gold и опыт, исследование техники.</li>
+              <li>Симуляция боя после гибели игрока.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <span class="brand-mark-text">STEEL TRACERS</span>
+      <p>Тактический танковый симулятор 1928–1945. Сделано на Unity.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#tanks">Техника</a>
+      <a href="#updates">Обновления</a>
+      <a href="#download">Скачать</a>
+      <a href="#top">Наверх ↑</a>
+    </div>
+    <p class="footer-copy">© <span id="year">2026</span> Steel Tracers. Все названия техники использованы в историческом контексте.</p>
+  </footer>
+
+  <dialog class="tank-modal" id="tank-modal">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
