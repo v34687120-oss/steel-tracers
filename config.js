@@ -4,11 +4,12 @@
  * Ссылка на сборку может быть локальной (downloads/...) или внешней (GitHub Releases, свой сервер).
  */
 window.STEEL_TRACERS_CONFIG = {
-  version: "0.9.0",
+  version: "0.9.1",
   updated: "28.10.2026",
   updatedIso: "2026-10-28",
   downloadUrl: "downloads/SteelTracers-Windows.zip",
   downloadSize: "40 МБ",
   repoUrl: ""
 };
+
 
