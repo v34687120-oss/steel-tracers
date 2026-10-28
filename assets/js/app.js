@@ -170,6 +170,11 @@
       }, null);
     };
 
+    const wheeled = state.tanks.find((tank) => tank.wheeled);
+    const multiTurret = state.tanks
+      .filter((tank) => (tank.turrets || 1) > 1)
+      .sort((a, b) => (b.turrets || 1) - (a.turrets || 1) || a.nation.localeCompare(b.nation))[0];
+
     const bestShell = (tank, key) => {
       const shells = tank.shells || [];
       return shells.reduce((value, shell) => Math.max(value, Number(shell[key]) || 0), 0);
@@ -183,6 +188,8 @@
       ['Лучшее пробитие', best((t) => bestShell(t, 'pen'), 'max'), (t) => num(bestShell(t, 'pen')) + ' мм'],
       ['Самый большой урон', best((t) => bestShell(t, 'damage'), 'max'), (t) => num(bestShell(t, 'damage')) + ' ед.'],
       ['Самый большой калибр', best((t) => t.caliber || 0, 'max'), (t) => num(t.caliber) + ' мм'],
+      ['Колёсная машина', wheeled, (t) => '8 колёс · ' + num(t.speed) + ' км/ч'],
+      ['Многобашенный танк', multiTurret, (t) => num(t.turrets) + ' башни'],
       ['Самый большой экипаж', best((t) => t.crew, 'max'), (t) => num(t.crew) + ' чел.'],
       ['Самый высокий БР', best((t) => t.br, 'max'), (t) => num(t.br, 1)],
       ['Самая дешёвая покупка', best((t) => t.gold, 'min'), (t) => num(t.gold) + ' Gold']
