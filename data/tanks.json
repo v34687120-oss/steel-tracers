@@ -399,7 +399,7 @@
       "caliber": 152,
       "wheeled": false,
       "turrets": 1,
-      "turret": 8,
+      "turret": 10,
       "yaw": 360,
       "elevation": "-18° … +28°",
       "armor": {"front":75,"side":75,"rear":60,"roof":30,"turret":75},
