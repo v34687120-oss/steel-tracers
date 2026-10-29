@@ -55,6 +55,21 @@
     }));
   }
 
+  function initPlatformSwitch() {
+    const tabs = $$('.platform-tab');
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((other) => {
+          const active = other === tab;
+          other.classList.toggle('is-active', active);
+          other.setAttribute('aria-selected', String(active));
+        });
+      });
+    });
+  }
+
   function initConfig() {
     const version = cfg.version || '0.9.0';
     const updated = cfg.updated || '—';
@@ -75,29 +90,63 @@
     const note = $('#download-note');
     const url = (cfg.downloadUrl || '').trim();
 
-    if (!button) return;
+    if (button) {
+      if (!url) {
+        button.setAttribute('aria-disabled', 'true');
+        button.classList.add('is-disabled');
+        button.href = '#download';
+        if (note) note.textContent = 'Ссылка на сборку появится здесь после публикации файла.';
+      } else {
+        button.href = url;
 
-    if (!url) {
-      button.setAttribute('aria-disabled', 'true');
-      button.classList.add('is-disabled');
-      button.href = '#download';
-      if (note) note.textContent = 'Ссылка на сборку появится здесь после публикации файла.';
-      return;
+        // Локальная ссылка: если архива ещё нет, честно говорим об этом,
+        // а не отправляем пользователя на 404.
+        if (url.startsWith('downloads/') && location.protocol !== 'file:') {
+          fetch(url, { method: 'HEAD', cache: 'no-store' })
+            .then((response) => {
+              if (response.ok) return;
+              button.classList.add('is-disabled');
+              button.setAttribute('aria-disabled', 'true');
+              if (note) note.textContent = 'Сборка ещё не загружена на сервер. Файл появится здесь после публикации.';
+            })
+            .catch(() => { /* офлайн-просмотр: ссылку не трогаем */ });
+        }
+      }
     }
 
-    button.href = url;
+    const macButton = $('#mac-download-button');
+    const macLabel = $('#mac-download-label');
+    const macNote = $('#mac-download-note');
+    const macSize = $('#mac-size');
+    const macUrl = (cfg.macDownloadUrl || '').trim();
 
-    // Локальная ссылка: если архива ещё нет, честно говорим об этом,
-    // а не отправляем пользователя на 404.
-    if (url.startsWith('downloads/') && location.protocol !== 'file:') {
-      fetch(url, { method: 'HEAD', cache: 'no-store' })
-        .then((response) => {
-          if (response.ok) return;
-          button.classList.add('is-disabled');
-          button.setAttribute('aria-disabled', 'true');
-          if (note) note.textContent = 'Сборка ещё не загружена на сервер. Файл появится здесь после публикации.';
-        })
-        .catch(() => { /* офлайн-просмотр: ссылку не трогаем */ });
+    if (macSize && cfg.macDownloadSize) macSize.textContent = cfg.macDownloadSize;
+
+    if (macButton) {
+      if (!macUrl) {
+        macButton.setAttribute('aria-disabled', 'true');
+        macButton.classList.add('is-disabled');
+        macButton.href = '#mac';
+        if (macLabel) macLabel.textContent = 'Архив для Mac скоро появится';
+      } else {
+        macButton.href = macUrl;
+
+        // Если полного архива нет на хостинге, кнопка ведёт к инструкции
+        // и не ломается в 404. Игру и PlayOnMac можно скачать отдельно.
+        if (macUrl.startsWith('downloads/') && location.protocol !== 'file:') {
+          fetch(macUrl, { method: 'HEAD', cache: 'no-store' })
+            .then((response) => {
+              if (response.ok) return;
+              macButton.removeAttribute('download');
+              macButton.href = '#mac-guide';
+              if (macLabel) macLabel.textContent = 'Как установить на Mac';
+              if (macNote) {
+                macNote.textContent = 'Полный архив ещё не загружен на хостинг. Ниже — игра и PlayOnMac отдельными ссылками, а в разделе «Установка по шагам» — инструкция.';
+              }
+            })
+            .catch(() => { /* офлайн-просмотр: ссылку не трогаем */ });
+        }
+      }
     }
 
     document.getElementById('year').textContent = String(new Date().getFullYear());
@@ -305,6 +354,7 @@
 
   async function boot() {
     initHeader();
+    initPlatformSwitch();
     initConfig();
     initFilters();
     initModal();

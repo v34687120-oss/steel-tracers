@@ -8,7 +8,9 @@ window.STEEL_TRACERS_CONFIG = {
   updated: "29.10.2026",
   updatedIso: "2026-10-29",
   downloadUrl: "downloads/SteelTracers-Windows.zip",
-  downloadSize: "40 МБ",
+  downloadSize: "51 МБ",
+  macDownloadUrl: "downloads/SteelTracers.mac.zip",
+  macDownloadSize: "670 МБ",
   repoUrl: "",
   passwordHash: "b433fb2e2c89abc2ead1e6bc9afe056540273f4042dea5caf5e40abe36f85948"
 };

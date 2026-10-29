@@ -7,7 +7,7 @@
   <title>Steel Tracers — тактический танковый симулятор 1928–1945</title>
   <meta name="description" content="Steel Tracers — танковый симулятор Второй мировой: 40 машин СССР и Германии: модули и прочность корпуса, ремонт, пожары, экипаж и сетевые бои 1×1.">
   <meta property="og:title" content="Steel Tracers">
-  <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows.">
+  <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows, Mac и Android.">
   <meta property="og:image" content="assets/img/hero.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css?v=120">
@@ -83,13 +83,16 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
             Скачать для Windows
           </a>
-          <a class="btn btn-ghost btn-large" href="#tanks">Смотреть технику</a>
+          <a class="btn btn-ghost btn-large" href="#mac">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+            Скачать для Mac
+          </a>
         </div>
         <div class="hero-meta">
           <div><strong id="stat-tanks">40</strong><span>машины</span></div>
           <div><strong>2</strong><span>нации</span></div>
           <div><strong>1.0–8.0</strong><span>боевой рейтинг</span></div>
-          <div><strong id="stat-size">40 МБ</strong><span>Windows 10/11</span></div>
+          <div><strong id="stat-size">51 МБ</strong><span>Windows 10/11</span></div>
         </div>
       </div>
       <div class="hero-version">
@@ -245,7 +248,13 @@
     </section>
 
     <section class="section download-section" id="download">
-      <div class="download-panel">
+      <div class="platform-switch" role="tablist" aria-label="Платформа">
+        <a class="platform-tab is-active" href="#download-windows" role="tab" aria-selected="true">Windows</a>
+        <a class="platform-tab" href="#mac" role="tab" aria-selected="false">Mac</a>
+        <a class="platform-tab" href="#android" role="tab" aria-selected="false">Android</a>
+      </div>
+
+      <div class="download-panel" id="download-windows">
         <div class="download-copy">
           <span class="section-kicker">04 / Скачать</span>
           <h2>В бой</h2>
@@ -285,36 +294,121 @@
 
       <div class="download-panel" id="mac" style="margin-top:24px;">
         <div class="download-copy">
-          <span class="section-kicker">MAC / WINE</span>
+          <span class="section-kicker">MAC / PLAYONMAC</span>
           <h2>Играть на Mac</h2>
           <p>
-            Нативного <code>.app</code> пока нет: Unity собирает macOS-версию только на Mac.
-            Но текущую Windows-сборку можно запустить на Mac через Wine-обёртку — Unity устанавливать не нужно.
+            <strong>SteelTracers.mac.zip</strong> — полный офлайн-архив: игра, установщик
+            <strong>PlayOnMac 4.4.4</strong> и подробная инструкция <code>README-MAC.txt</code>.
+            Нативного <code>.app</code> пока нет: Unity собирает macOS-версию только на Mac,
+            поэтому игра запускается через Wine-обёртку PlayOnMac.
           </p>
-          <p>
-            <strong>Intel Mac:</strong> установи бесплатный <strong>PlayOnMac</strong>, создай виртуальный диск,
-            выбери <code>SteelTracers.exe</code> из архива.<br>
-            <strong>Apple Silicon (M1/M2/M3):</strong> установи <strong>Whisky</strong>, создай бутылку Windows 10 64-bit
-            и запусти <code>SteelTracers.exe</code> из архива.
-          </p>
-          <p>
-            <a href="https://www.playonmac.com/en/download.html" target="_blank" rel="noopener">Скачать PlayOnMac (Intel)</a>
-            &nbsp;·&nbsp;
-            <a href="https://getwhisky.app/" target="_blank" rel="noopener">Скачать Whisky (M1/M2/M3)</a>
-          </p>
-          <p>
-            В игре сразу поставь низкое качество графики и выключи тени. На слабом MacBook Air
-            FPS будет зависеть от модели; 50 FPS не гарантируется.
-          </p>
-          <a class="btn btn-amber btn-large download-btn" href="downloads/SteelTracers-Windows.zip">
+          <div class="download-meta">
+            <div><span>Архив</span><strong>SteelTracers.mac.zip</strong></div>
+            <div><span>Размер</span><strong id="mac-size">670 МБ</strong></div>
+            <div><span>Внутри</span><strong>Игра + PlayOnMac + инструкция</strong></div>
+            <div><span>Система</span><strong>macOS 10.15+ · Intel / Apple Silicon</strong></div>
+          </div>
+          <a class="btn btn-amber btn-large download-btn" id="mac-download-button" href="downloads/SteelTracers.mac.zip" download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
-            Скачать сборку для Mac (Wine)
+            <span id="mac-download-label">Скачать SteelTracers.mac.zip</span>
           </a>
+          <p class="download-note" id="mac-download-note">
+            Внутри уже лежит PlayOnMac 4.4.4 (574 МБ) — отдельно скачивать не нужно.
+            На Apple Silicon сначала поставь Rosetta 2:
+            <code>softwareupdate --install-rosetta --agree-to-license</code>.
+          </p>
           <p class="download-note">
-            Это тот же актуальный Windows-билд. Настоящий macOS <code>.app</code> можно собрать только
-            на Mac с Unity или в облаке с Unity-лицензией.
+            Только игра, без PlayOnMac:
+            <a href="downloads/SteelTracers-Windows.zip">SteelTracers-Windows.zip</a>
+            &nbsp;·&nbsp;
+            <a href="https://repository.playonmac.com/PlayOnMac/PlayOnMac_4.4.4.dmg" target="_blank" rel="noopener">PlayOnMac 4.4.4 с официального сайта</a>
+            &nbsp;·&nbsp;
+            <a href="downloads/README-MAC.txt" target="_blank" rel="noopener">читать инструкцию без скачивания</a>
           </p>
         </div>
+        <div class="download-art" aria-hidden="true">
+          <div class="hazard"></div>
+          <svg viewBox="0 0 200 120" class="download-tank">
+            <path d="M20 78h40l10-18h72l10 18h28v22H20z"/>
+            <path d="M70 50h58v16H70z"/>
+            <path d="M100 55h78v6h-78z"/>
+            <circle cx="45" cy="100" r="9"/><circle cx="78" cy="100" r="9"/>
+            <circle cx="118" cy="100" r="9"/><circle cx="155" cy="100" r="9"/>
+          </svg>
+          <div class="download-stamp">MAC<br><span>PLAYONMAC / WINE</span></div>
+        </div>
+      </div>
+
+      <div class="mac-guide" id="mac-guide">
+        <div class="mac-guide-head">
+          <span class="section-kicker">MAC / ИНСТРУКЦИЯ</span>
+          <h3>Установка по шагам</h3>
+          <p>Полная версия с логами, портами и удалением — в <code>README-MAC.txt</code> внутри архива.</p>
+        </div>
+        <ol class="mac-steps">
+          <li>
+            <b>Проверь macOS.</b>
+            Меню Apple → «Об этом Mac». Нужна macOS 10.15 Catalina или новее.
+            На 10.13/10.14 нужен старый PlayOnMac 4.3.3.
+          </li>
+          <li>
+            <b>Apple Silicon: Rosetta 2.</b>
+            PlayOnMac 4.4.4 — Intel-приложение. Открой Терминал и выполни
+            <code>softwareupdate --install-rosetta --agree-to-license</code>.
+          </li>
+          <li>
+            <b>Установи PlayOnMac.</b>
+            Открой <code>PlayOnMac_4.4.4.dmg</code>, перетащи PlayOnMac в «Программы».
+            Первый запуск — правый клик → «Открыть». Если macOS пишет «повреждён»:
+            <code>sudo xattr -rd com.apple.quarantine /Applications/PlayOnMac.app</code>.
+          </li>
+          <li>
+            <b>Создай виртуальный диск.</b>
+            PlayOnMac → «Install a program» → «Install a non-listed program» →
+            «Install a program in a new virtual drive» → имя <code>SteelTracers</code> →
+            64-bit → выбери <code>SteelTracers/SteelTracers.exe</code>.
+            Дойди до меню игры, закрой её и создай ярлык с именем <code>SteelTracers</code>.
+          </li>
+          <li>
+            <b>Настрой Wine.</b>
+            Configure → выбери диск → Configure Wine → Windows 10.
+            Включи автозахват мыши. Если чёрный экран или странное окно —
+            включи виртуальный рабочий стол 1280×720.
+          </li>
+          <li>
+            <b>Запусти и настрой графику.</b>
+            Ярлык SteelTracers → Run. В игре: Low, тени выкл., 1280×720.
+            На MacBook Air M1 ориентир 30–50 FPS; на Intel-графике ниже.
+          </li>
+        </ol>
+        <details class="mac-faq">
+          <summary>Если игра не запускается</summary>
+          <ul>
+            <li><b>Чёрный экран или вылет.</b> В свойствах ярлыка добавь аргументы:
+              <code>-screen-width 1280 -screen-height 720 -screen-fullscreen 0 -force-d3d11</code>.</li>
+            <li><b>Failed to initialize graphics.</b> Включи виртуальный рабочий стол,
+              проверь Rosetta 2, попробуй другую версию Wine в Tools → Manage Wine versions.</li>
+            <li><b>Нет звука.</b> Configure Wine → Audio → CoreAudio, перезапусти игру.</li>
+            <li><b>Где лог.</b>
+              <code>~/Library/PlayOnMac/wineprefix/SteelTracers/drive_c/users/&lt;пользователь&gt;/AppData/LocalLow/DefaultCompany/SteelTracers/Player.log</code></li>
+          </ul>
+        </details>
+        <p class="download-note">
+          Сеть 1×1: TCP 47778 и UDP 47777. Хост создаёт комнату, второй игрок вводит его IP.
+          В macOS разреши входящие соединения для PlayOnMac. Порты можно пробросить на роутере,
+          но обычно UPnP справляется сам.
+        </p>
+        <p class="download-note mac-security">
+          Проверка безопасности: Microsoft Defender (29.10.2026) не нашёл угроз в игре и
+          <code>PlayOnMac_4.4.4.dmg</code>. SHA-256 установщика:
+          <code class="hash">7BE6BEE16D8DF3E0CAA5DF6F647AC437A5C4D77ED7FA1B11A1DB02EDF9C66522</code>.
+          PlayOnMac может вызывать ложные срабатывания антивирусов — это официальный установщик
+          с repository.playonmac.com.
+        </p>
+        <p class="download-note">
+          На Apple Silicon альтернатива — <a href="https://getwhisky.app/" target="_blank" rel="noopener">Whisky</a>:
+          создай бутылку Windows 10 64-bit, включи DXVK и запусти <code>SteelTracers.exe</code>.
+        </p>
       </div>
 
       <div class="download-panel" id="android" style="margin-top:24px;">
@@ -359,6 +453,7 @@
             <h3>1.2.0 — Android-порт</h3>
             <ul>
               <li>APK для Android 8.0+ (ARM64 и ARMv7), мультиплеер работает.</li>
+              <li>Для Mac добавлен полный архив SteelTracers.mac.zip: игра, PlayOnMac 4.4.4 и подробная инструкция.</li>
               <li>Сенсорное управление: джойстик, свайп-обзор и крупные кнопки огня, ремонта, экипажа и снарядов.</li>
               <li>На Android заранее минимальная графика и разрешение 1280×720 для стабильного FPS.</li>
               <li>Перед входом показывается предупреждение о сниженных характеристиках.</li>

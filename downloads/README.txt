@@ -1,6 +1,18 @@
-Steel Tracers — Windows x64
-===========================
+Steel Tracers — сборки
+======================
 
+Windows x64:
+  SteelTracers-Windows.zip → распакуй и запусти SteelTracers.exe.
+
+Mac:
+  SteelTracers.mac.zip → внутри игра, PlayOnMac_4.4.4.dmg и README-MAC.txt.
+  Подробная инструкция также лежит рядом: README-MAC.txt.
+
+Android:
+  SteelTracers-Android.apk → разреши «Неизвестные источники» и открой APK.
+
+Windows: подробности
+--------------------
 1. Распакуй архив.
 2. Запусти SteelTracers.exe.
 3. Установка не нужна.
@@ -16,3 +28,4 @@ W/S — ход, A/D — поворот корпуса, мышь — башня �
 
 Сетевая игра 1×1:
 хост создаёт комнату, второй игрок подключается по IP.
+Порты: TCP 47778, UDP 47777.

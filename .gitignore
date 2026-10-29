@@ -1,0 +1,4 @@
+# Большой Mac-архив не храним в git: GitHub не принимает файлы >100 МБ.
+# Файл лежит локально в downloads/ и раздаётся хостингом / GitHub Releases.
+downloads/SteelTracers.mac.zip
+downloads/*.dmg

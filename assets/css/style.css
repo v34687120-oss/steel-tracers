@@ -150,6 +150,7 @@ body.gate-locked { overflow: hidden; }
 .btn-amber { background: var(--amber); border-color: var(--amber); color: #15170f; box-shadow: 0 10px 30px rgba(230, 161, 60, 0.18); }
 .btn-amber:hover { background: var(--amber-2); border-color: var(--amber-2); transform: translateY(-2px); box-shadow: 0 16px 38px rgba(230, 161, 60, 0.26); }
 .btn-ghost { background: rgba(20, 24, 20, 0.55); color: var(--text); backdrop-filter: blur(8px); }
+.btn.is-disabled { opacity: .55; cursor: not-allowed; pointer-events: none; filter: grayscale(.45); }
 .btn-ghost:hover { border-color: var(--amber); color: var(--amber-2); transform: translateY(-2px); }
 
 /* ---------- Hero ---------- */
@@ -346,6 +347,74 @@ body.gate-locked { overflow: hidden; }
 .download-tank circle { fill: #1a1e17; stroke: var(--amber); stroke-width: 2; }
 .download-stamp { position: absolute; right: 22px; bottom: 20px; z-index: 2; text-align: right; font-family: var(--font-display); font-size: 28px; line-height: .9; color: var(--amber); border: 2px solid rgba(230,161,60,.4); padding: 9px 12px; transform: rotate(-3deg); }
 .download-stamp span { font-size: 8px; letter-spacing: .18em; color: var(--muted); }
+
+/* ---------- Platform switch / Mac guide ---------- */
+.platform-switch {
+  display: flex; flex-wrap: wrap; gap: 1px; margin: 0 0 18px;
+  background: var(--line); border: 1px solid var(--line-strong);
+}
+.platform-tab {
+  flex: 1 1 140px; padding: 14px 20px; text-align: center;
+  font-family: var(--font-display); font-size: 18px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,.02);
+  transition: background .18s ease, color .18s ease;
+}
+.platform-tab:hover { color: var(--text); background: rgba(230,161,60,.07); }
+.platform-tab.is-active { color: #15170f; background: var(--amber); }
+
+.mac-guide {
+  margin-top: 24px; padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(145deg, #12160f, #0b0e0b);
+}
+.mac-guide-head h3 {
+  margin: 6px 0 10px; font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 54px); line-height: .95; text-transform: uppercase;
+}
+.mac-guide-head p { margin: 0 0 24px; max-width: 760px; color: var(--muted); }
+.mac-steps {
+  counter-reset: macstep; list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.mac-steps li {
+  counter-increment: macstep; position: relative;
+  padding: 18px 20px 18px 66px; background: rgba(255,255,255,.02);
+  color: var(--muted); font-size: 14px; line-height: 1.65;
+}
+.mac-steps li::before {
+  content: counter(macstep); position: absolute; left: 18px; top: 16px;
+  width: 30px; height: 30px; display: grid; place-items: center;
+  border: 1px solid rgba(230,161,60,.45); color: var(--amber);
+  font-family: var(--font-display); font-size: 16px;
+}
+.mac-steps b {
+  display: block; margin-bottom: 3px; color: var(--text);
+  font-family: var(--font-display); font-size: 18px;
+  letter-spacing: .02em; text-transform: uppercase;
+}
+.mac-steps code, .mac-guide code, .mac-faq code {
+  color: var(--amber-2); background: rgba(230,161,60,.08);
+  padding: 1px 5px; border: 1px solid rgba(230,161,60,.18); font-size: 12px;
+}
+.mac-faq {
+  margin-top: 18px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+.mac-faq summary {
+  cursor: pointer; padding: 14px 18px; color: var(--amber);
+  font-family: var(--font-display); font-size: 20px; text-transform: uppercase;
+}
+.mac-faq ul {
+  display: grid; gap: 8px; margin: 0; padding: 0 18px 18px 38px;
+  color: var(--muted); font-size: 14px; line-height: 1.7;
+}
+.mac-security { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.hash { word-break: break-all; }
+
+@media (max-width: 720px) {
+  .mac-steps li { padding: 16px 16px 16px 54px; }
+  .mac-steps li::before { left: 14px; top: 14px; }
+}
 
 /* ---------- Timeline ---------- */
 .timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
