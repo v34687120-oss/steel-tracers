@@ -1,6 +1,6 @@
 {
   "game": "Steel Tracers",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "tanks": [
     {
       "name": "МС-1",
@@ -401,7 +401,7 @@
       "turrets": 1,
       "turret": 8,
       "yaw": 360,
-      "elevation": "-3° … +25°",
+      "elevation": "-10° … +28°",
       "armor": {"front":75,"side":75,"rear":60,"roof":30,"turret":75},
       "shells": [{"name":"Бронебойный БР-540","type":"AP","pen":85,"damage":250,"ammo":20,"speed":530},{"name":"Фугасный ОФ-530","type":"HE","pen":20,"damage":320,"ammo":20,"speed":500}],
       "crewList": ["Командир","Механик-водитель","Наводчик","Заряжающий","Радист","Курсовой пулемётчик"],
