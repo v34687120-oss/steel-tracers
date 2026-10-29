@@ -10,7 +10,7 @@
   <meta property="og:description" content="Тактический танковый симулятор 1928–1945. Скачать для Windows, Mac и Android.">
   <meta property="og:image" content="assets/img/hero.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/style.css?v=121">
+  <link rel="stylesheet" href="assets/css/style.css?v=121b">
 </head>
 <body class="gate-locked">
   <div class="noise" aria-hidden="true"></div>
@@ -96,7 +96,7 @@
         </div>
       </div>
       <div class="hero-version">
-        <span class="pulse"></span> СБОРКА <b id="version-badge">1.2.0</b>
+        <span class="pulse"></span> СБОРКА <b id="version-badge">1.2.1</b>
       </div>
       <a class="scroll-hint" href="#about" aria-label="Листать вниз"><span></span></a>
     </section>
@@ -263,7 +263,7 @@
             <code>SteelTracers.exe</code>. Установка не нужна.
           </p>
           <div class="download-meta">
-            <div><span>Версия</span><strong id="download-version">1.2.0</strong></div>
+            <div><span>Версия</span><strong id="download-version">1.2.1</strong></div>
             <div><span>Платформа</span><strong>Windows 10/11 · x64</strong></div>
             <div><span>Размер</span><strong id="download-size">40 МБ</strong></div>
             <div><span>Обновлено</span><strong id="download-date">28.10.2026</strong></div>
@@ -421,13 +421,22 @@
           </p>
           <p>
             На Android заранее включены <strong>минимальные настройки графики</strong> и разрешение
-            1280×720. Перед входом игра покажет предупреждение. Поднять качество можно в меню —
-            на свой страх и риск.
+            1280×720. Перед входом игра покажет предупреждение. В меню есть переключатель
+            <strong>«мобильная / как на ПК»</strong>: на мощном телефоне можно включить тени,
+            сглаживание, пост-эффекты и траву уровня ПК.
+          </p>
+          <p>
+            Чувствительность прицела настраивается отдельным ползунком в меню и по умолчанию
+            сильно снижена, чтобы танк не разворачивался от лёгкого касания.
           </p>
           <p>
             Управление: левый джойстик — ход, свайп справа — обзор, крупные кнопки —
             огонь, пулемёт, прицел, ремонт, экипаж, огнетушитель и снаряды.
-            Мультиплеер тот же: хост создаёт комнату, второй игрок подключается по IP.
+          </p>
+          <p>
+            Мультиплеер: хост создаёт комнату, второй игрок находит её в списке (одна Wi-Fi сеть)
+            или подключается по IP. Для игры через интернет нужен проброс портов
+            <strong>TCP 47778 / UDP 47777</strong> или VPN вроде ZeroTier/Radmin.
           </p>
           <a class="btn btn-amber btn-large download-btn" href="downloads/SteelTracers-Android.apk">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
@@ -447,6 +456,20 @@
         <p>Сайт обновляется вместе с игрой: техника, характеристики и ссылка на сборку.</p>
       </div>
       <ol class="timeline" id="timeline">
+        <li>
+          <div class="timeline-date">29.10.2026</div>
+          <div class="timeline-body">
+            <h3>1.2.1 — графика как на ПК и сеть на Android</h3>
+            <ul>
+              <li>В настройках Android появился переключатель «мобильная / как на ПК»: тени, сглаживание, пост-эффекты, полное разрешение и трава уровня ПК.</li>
+              <li>По умолчанию по-прежнему низкая графика — повышенную включает сам игрок.</li>
+              <li>Добавлен ползунок чувствительности прицела на Android; базовое значение сильно снижено.</li>
+              <li>Сетевой экран на Android теперь прокручивается: можно создать комнату, обновить список и войти по IP.</li>
+              <li>Список комнат обновляется автоматически, комнаты живут дольше и не пропадают в момент входа.</li>
+              <li>Broadcast комнаты уходит и в адрес подсети — Android чаще находит хост в локальной сети.</li>
+            </ul>
+          </div>
+        </li>
         <li>
           <div class="timeline-date">29.10.2026</div>
           <div class="timeline-body">
@@ -692,6 +715,7 @@
   <script src="assets/js/app.js?v=121"></script>
 </body>
 </html>
+
 
 
 
