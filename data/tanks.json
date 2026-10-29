@@ -896,7 +896,7 @@
       "yaw": 360,
       "elevation": "-6° … +25°",
       "armor": {"front":50,"side":30,"rear":20,"roof":12,"turret":45},
-      "shells": [{"name":"Бронебойный PzGr. 39","type":"AP","pen":80,"damage":100,"ammo":45,"speed":650},{"name":"Осколочно-фугасный SprGr.","type":"HE","pen":20,"damage":135,"ammo":35,"speed":600}],
+      "shells": [{"name":"Бронебойный PzGr. 39","type":"AP","pen":88,"damage":100,"ammo":45,"speed":650},{"name":"Осколочно-фугасный SprGr.","type":"HE","pen":20,"damage":135,"ammo":35,"speed":600}],
       "crewList": ["Командир","Механик-водитель","Наводчик","Заряжающий","Радист","Курсовой пулемётчик"],
       "description": "Neubaufahrzeug — немецкий многобашенный средний танк 1930-х. 75-мм орудие в центральной башне и две малые башни с 37-мм пушками. Тонкая броня, но хорошая огневая поддержка. Экипаж 6 человек.",
       "image": "assets/tanks/neubaufahrzeug.png"
