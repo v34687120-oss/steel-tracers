@@ -266,6 +266,9 @@
           <p class="download-note" id="download-note">
             Если Windows показывает предупреждение SmartScreen, нажми «Подробнее» → «Выполнить всё равно».
           </p>
+          <p class="download-note">
+            <a href="#mac">Игра на Mac</a> — через PlayOnMac или Whisky, без установки Unity.
+          </p>
         </div>
         <div class="download-art" aria-hidden="true">
           <div class="hazard"></div>
@@ -277,6 +280,35 @@
             <circle cx="118" cy="100" r="9"/><circle cx="155" cy="100" r="9"/>
           </svg>
           <div class="download-stamp">WIN64<br><span>READY FOR BATTLE</span></div>
+        </div>
+      </div>
+
+      <div class="download-panel" id="mac" style="margin-top:24px;">
+        <div class="download-copy">
+          <span class="section-kicker">MAC / WINE</span>
+          <h2>Играть на Mac</h2>
+          <p>
+            Нативного <code>.app</code> пока нет: Unity собирает macOS-версию только на Mac.
+            Но текущую Windows-сборку можно запустить на Mac через Wine-обёртку — Unity устанавливать не нужно.
+          </p>
+          <p>
+            <strong>Intel Mac:</strong> установи бесплатный <strong>PlayOnMac</strong>, создай виртуальный диск,
+            выбери <code>SteelTracers.exe</code> из архива.<br>
+            <strong>Apple Silicon (M1/M2/M3):</strong> установи <strong>Whisky</strong>, создай бутылку Windows 10 64-bit
+            и запусти <code>SteelTracers.exe</code> из архива.
+          </p>
+          <p>
+            В игре сразу поставь низкое качество графики и выключи тени. На слабом MacBook Air
+            FPS будет зависеть от модели; 50 FPS не гарантируется.
+          </p>
+          <a class="btn btn-amber btn-large download-btn" href="downloads/SteelTracers-Windows.zip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+            Скачать сборку для Mac (Wine)
+          </a>
+          <p class="download-note">
+            Это тот же актуальный Windows-билд. Настоящий macOS <code>.app</code> можно собрать только
+            на Mac с Unity или в облаке с Unity-лицензией.
+          </p>
         </div>
       </div>
     </section>
