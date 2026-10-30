@@ -10,10 +10,11 @@ window.STEEL_TRACERS_CONFIG = {
   downloadUrl: "https://media.githubusercontent.com/media/v34687120-oss/steel-tracers/gh-pages/downloads/SteelTracers-Windows.zip",
   downloadSize: "121 МБ",
   macDownloadUrl: "https://media.githubusercontent.com/media/v34687120-oss/steel-tracers/gh-pages/downloads/SteelTracers.mac.zip",
-  macDownloadSize: "773 МБ",
+  macDownloadSize: "810 МБ",
   repoUrl: "",
   passwordHash: "b433fb2e2c89abc2ead1e6bc9afe056540273f4042dea5caf5e40abe36f85948"
 };
+
 
 
 

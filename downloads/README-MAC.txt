@@ -207,7 +207,7 @@ Whisky не входит в архив — это отдельная прогр�
   Размер: 602 392 276 байт. Это официальный установщик с
   repository.playonmac.com.
 - SHA-256 SteelTracers-Windows.zip:
-  E8E4430758498BD0F8D9EF94F0BEDC6912AD776985B2810F9E9EA6F38EB76DCD
+  24E7E6B176732BDD08CF8EB17D84AEF97B1992D779BB76260E68EC6D244A71A9
 - Проверить на Mac: открой Терминал, перейди в папку с архивом и выполни
   shasum -a 256 PlayOnMac_4.4.4.dmg
   Хеш должен совпасть.
