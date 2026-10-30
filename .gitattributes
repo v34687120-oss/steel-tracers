@@ -1,3 +1,5 @@
 downloads/SteelTracers.mac.zip filter=lfs diff=lfs merge=lfs -text
 downloads/SteelTracers-Android.apk filter=lfs diff=lfs merge=lfs -text
 downloads/SteelTracers-Windows.zip filter=lfs diff=lfs merge=lfs -text
+downloads/SteelTracers-Android-arm64.apk filter=lfs diff=lfs merge=lfs -text
+downloads/SteelTracers-Android-armv7.apk filter=lfs diff=lfs merge=lfs -text
