@@ -5,8 +5,8 @@
  */
 window.STEEL_TRACERS_CONFIG = {
   version: "1.2.8",
-  updated: "30.10.2026",
-  updatedIso: "2026-10-30",
+  updated: "31.10.2026",
+  updatedIso: "2026-10-31",
   downloadUrl: "https://media.githubusercontent.com/media/v34687120-oss/steel-tracers/gh-pages/downloads/SteelTracers-Windows.zip",
   downloadSize: "228 МБ",
   macDownloadUrl: "https://media.githubusercontent.com/media/v34687120-oss/steel-tracers/gh-pages/downloads/SteelTracers.mac.zip",
