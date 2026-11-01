@@ -1161,6 +1161,282 @@
       "crewList": ["Командир","Механик-водитель","Наводчик","Заряжающий","Радист","Пулемётчик"],
       "description": "Maus — сверхтяжёлый немецкий танк. 188 тонн, 200-мм лобовая броня и 128-мм орудие. Практически не пробивается в лоб, но крайне медленный и неповоротливый. Экипаж 6 человек.",
       "image": "assets/tanks/maus.png"
+    },
+    {
+      "name": "ЛаГГ-3",
+      "slug": "lagg-3",
+      "nation": "ussr",
+      "nationName": "СССР",
+      "class": "Истребитель",
+      "tier": 6,
+      "br": 4.0,
+      "gold": 3200,
+      "xp": 5200,
+      "requires": "",
+      "mass": 3.3,
+      "crew": 1,
+      "speed": 560,
+      "accel": 12,
+      "turn": 22,
+      "reload": 0.1,
+      "caliber": 20,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "ШВАК 20-мм",
+          "type": "AP",
+          "pen": 25,
+          "damage": 12,
+          "ammo": 180,
+          "speed": 800
+        }
+      ],
+      "crewList": [
+        "Пилот"
+      ],
+      "description": "ЛаГГ-3 — ранний советский истребитель. В игре появится как лёгкая воздушная цель с пулемётно-пушечным вооружением и бомбами.",
+      "image": "assets/tanks/aircraft.svg"
+    },
+    {
+      "name": "Як-9",
+      "slug": "yak-9",
+      "nation": "ussr",
+      "nationName": "СССР",
+      "class": "Истребитель",
+      "tier": 7,
+      "br": 5.0,
+      "gold": 4200,
+      "xp": 6800,
+      "requires": "ЛаГГ-3",
+      "mass": 3.0,
+      "crew": 1,
+      "speed": 600,
+      "accel": 13,
+      "turn": 20,
+      "reload": 0.1,
+      "caliber": 20,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "ШВАК 20-мм",
+          "type": "AP",
+          "pen": 28,
+          "damage": 14,
+          "ammo": 200,
+          "speed": 820
+        }
+      ],
+      "crewList": [
+        "Пилот"
+      ],
+      "description": "Як-9 — манёвренный советский истребитель. Быстрее ЛаГГ-3, но требует аккуратного пилотажа на малой высоте.",
+      "image": "assets/tanks/aircraft.svg"
+    },
+    {
+      "name": "Bf 109 F-4",
+      "slug": "bf-109-f4",
+      "nation": "germany",
+      "nationName": "Германия",
+      "class": "Истребитель",
+      "tier": 6,
+      "br": 4.3,
+      "gold": 3400,
+      "xp": 5400,
+      "requires": "",
+      "mass": 3.1,
+      "crew": 1,
+      "speed": 620,
+      "accel": 13,
+      "turn": 21,
+      "reload": 0.1,
+      "caliber": 20,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "MG 151 20-мм",
+          "type": "AP",
+          "pen": 30,
+          "damage": 15,
+          "ammo": 200,
+          "speed": 850
+        }
+      ],
+      "crewList": [
+        "Пилот"
+      ],
+      "description": "Bf 109 F-4 — немецкий истребитель с мощным мотором и пушечным вооружением. Один из лучших самолётов для воздушного боя.",
+      "image": "assets/tanks/aircraft.svg"
+    },
+    {
+      "name": "Fw 190 A-4",
+      "slug": "fw-190-a4",
+      "nation": "germany",
+      "nationName": "Германия",
+      "class": "Истребитель",
+      "tier": 7,
+      "br": 5.3,
+      "gold": 4600,
+      "xp": 7200,
+      "requires": "Bf 109 F-4",
+      "mass": 4.0,
+      "crew": 1,
+      "speed": 650,
+      "accel": 14,
+      "turn": 24,
+      "reload": 0.1,
+      "caliber": 20,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "MG 151 20-мм",
+          "type": "AP",
+          "pen": 32,
+          "damage": 16,
+          "ammo": 250,
+          "speed": 860
+        }
+      ],
+      "crewList": [
+        "Пилот"
+      ],
+      "description": "Fw 190 A-4 — тяжёлый немецкий истребитель. Быстрый и хорошо вооружён, но менее манёвренный, чем Bf 109.",
+      "image": "assets/tanks/aircraft.svg"
+    },
+    {
+      "name": "Стрелок СССР",
+      "slug": "infantry-ussr",
+      "nation": "ussr",
+      "nationName": "СССР",
+      "class": "Пехота",
+      "tier": 1,
+      "br": 1.0,
+      "gold": 0,
+      "xp": 0,
+      "requires": "",
+      "mass": 0.08,
+      "crew": 1,
+      "speed": 18,
+      "accel": 8,
+      "turn": 60,
+      "reload": 4,
+      "caliber": 0,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "РПГ",
+          "type": "HEAT",
+          "pen": 320,
+          "damage": 600,
+          "ammo": 4,
+          "speed": 55
+        }
+      ],
+      "crewList": [
+        "Стрелок"
+      ],
+      "description": "Советский пехотинец с управляемой РПГ. Быстрый, хрупкий, воюет вместе с танками и охотится на бронетехнику в тылу.",
+      "image": "assets/tanks/infantry.svg"
+    },
+    {
+      "name": "Стрелок Германии",
+      "slug": "infantry-germany",
+      "nation": "germany",
+      "nationName": "Германия",
+      "class": "Пехота",
+      "tier": 1,
+      "br": 1.0,
+      "gold": 0,
+      "xp": 0,
+      "requires": "",
+      "mass": 0.08,
+      "crew": 1,
+      "speed": 18,
+      "accel": 8,
+      "turn": 60,
+      "reload": 4,
+      "caliber": 0,
+      "wheeled": false,
+      "turrets": 0,
+      "turret": 0,
+      "yaw": 0,
+      "elevation": "—",
+      "armor": {
+        "front": 0,
+        "side": 0,
+        "rear": 0,
+        "roof": 0,
+        "turret": 0
+      },
+      "shells": [
+        {
+          "name": "Panzerfaust",
+          "type": "HEAT",
+          "pen": 300,
+          "damage": 580,
+          "ammo": 4,
+          "speed": 55
+        }
+      ],
+      "crewList": [
+        "Стрелок"
+      ],
+      "description": "Немецкий пехотинец с противотанковым гранатомётом. Поддерживает танки, пробирается в тыл и уничтожает технику противника.",
+      "image": "assets/tanks/infantry.svg"
     }
   ]
 }

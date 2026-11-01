@@ -2,7 +2,7 @@
   'use strict';
 
   const cfg = window.STEEL_TRACERS_CONFIG || {};
-  const state = { nation: 'all', className: 'all', query: '', tanks: [] };
+  const state = { nation: 'all', category: 'all', className: 'all', query: '', tanks: [] };
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -165,6 +165,18 @@
       });
     });
 
+    $$('#category-tabs .tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        state.category = tab.dataset.category;
+        $$('#category-tabs .tab').forEach((other) => {
+          const active = other === tab;
+          other.classList.toggle('is-active', active);
+          other.setAttribute('aria-selected', String(active));
+        });
+        render();
+      });
+    });
+
     $('#class-filter')?.addEventListener('change', (event) => {
       state.className = event.target.value;
       render();
@@ -182,6 +194,10 @@
 
   function matches(tank) {
     if (state.nation !== 'all' && tank.nation !== state.nation) return false;
+    const category = tank.category || (tank.class === 'Истребитель'
+      ? 'air'
+      : (tank.class === 'Пехота' ? 'infantry' : 'ground'));
+    if (state.category !== 'all' && category !== state.category) return false;
     if (state.className !== 'all' && tank.class !== state.className) return false;
     if (!state.query) return true;
 
