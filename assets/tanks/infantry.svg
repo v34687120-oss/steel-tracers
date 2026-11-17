@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20281c"/>
+      <stop offset="1" stop-color="#0b0f0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g fill="#5d6b3c" stroke="#c8d0a8" stroke-width="4">
+    <circle cx="320" cy="105" r="46"/>
+    <path d="M250 155 Q320 125 390 155 L420 330 L220 330 Z"/>
+    <path d="M220 190 L150 285 L185 305 L255 220 Z"/>
+    <path d="M420 190 L490 285 L455 305 L385 220 Z"/>
+  </g>
+  <rect x="270" y="165" width="100" height="28" rx="6" fill="#3b4528" stroke="#c8d0a8" stroke-width="3"/>
+  <text x="320" y="185" font-family="Segoe UI, sans-serif" font-size="20" fill="#dce4c8" text-anchor="middle">РПГ</text>
+</svg>

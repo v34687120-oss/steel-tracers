@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2a1c"/>
+      <stop offset="1" stop-color="#0a100a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g fill="#4c5a34" stroke="#c8d0a8" stroke-width="4">
+    <path d="M165 205 L205 165 L455 165 L480 205 Z"/>
+    <rect x="165" y="205" width="315" height="72" rx="10"/>
+    <path d="M210 165 L240 140 L420 140 L455 165 Z" fill="#3b4728"/>
+  </g>
+  <g fill="#26301c" stroke="#c8d0a8" stroke-width="3">
+    <rect x="250" y="105" width="150" height="50" rx="6"/>
+    <path d="M260 105 L275 80 L375 80 L390 105 Z" fill="#26301c"/>
+    <rect x="300" y="92" width="50" height="18" rx="3" fill="#3b4728"/>
+  </g>
+  <g stroke="#d8dcc8" stroke-width="7" stroke-linecap="round">
+    <line x1="350" y1="100" x2="470" y2="35"/>
+  </g>
+  <g fill="#1f241f" stroke="#c8d0a8" stroke-width="3">
+    <circle cx="195" cy="292" r="27"/>
+    <circle cx="255" cy="292" r="27"/>
+    <circle cx="330" cy="292" r="27"/>
+    <circle cx="395" cy="292" r="27"/>
+    <circle cx="450" cy="292" r="27"/>
+  </g>
+  <text x="320" y="240" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#e4e9d2" text-anchor="middle">37</text>
+  <text x="320" y="332" font-family="Segoe UI, sans-serif" font-size="19" fill="#c8d0a8" text-anchor="middle">ЗСУ-37 · открытая рубка</text>
+</svg>
