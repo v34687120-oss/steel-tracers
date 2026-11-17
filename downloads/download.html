@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Загрузка Steel Tracers</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 20%, #253026, #0b0e0b 70%);
+      color: #e8e4d4; font-family: "Segoe UI", Roboto, sans-serif;
+    }
+    .card {
+      width: min(560px, calc(100vw - 32px)); padding: 28px 26px;
+      background: rgba(18, 22, 17, 0.92); border: 1px solid #4a5441;
+      border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.55);
+    }
+    h1 { margin: 0 0 8px; font-size: 24px; color: #e7d79a; }
+    p { margin: 0 0 18px; line-height: 1.45; color: #b9c0ae; font-size: 14px; }
+    button {
+      width: 100%; padding: 14px 18px; border: 0; border-radius: 9px; cursor: pointer;
+      background: linear-gradient(#c8a84f, #9b7a2f); color: #1a1a12;
+      font-weight: 700; font-size: 16px; letter-spacing: .02em;
+    }
+    button:disabled { opacity: .55; cursor: default; }
+    .status { margin-top: 14px; font-size: 13px; color: #9fb08f; min-height: 20px; }
+    .bar { margin-top: 12px; height: 8px; background: #2a3326; border-radius: 6px; overflow: hidden; }
+    .bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #8fae5b, #d6c56d); transition: width .2s; }
+    a { color: #d9c77a; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 id="title">Загрузка Steel Tracers</h1>
+    <p id="hint">Файл собирается из нескольких частей прямо в браузере. Не закрывайте вкладку до окончания загрузки.</p>
+    <button id="start">Скачать</button>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="status" id="status"></div>
+    <p style="margin-top:16px">Если автоматическая сборка не сработала, скачайте части вручную и соедините их: <a id="manual" href="#">части</a>.</p>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const isAndroid = params.get('file') === 'android';
+    const name = isAndroid ? 'SteelTracers-Android.apk' : 'SteelTracers-Windows.zip';
+    const count = isAndroid ? 3 : 4;
+    const parts = Array.from({ length: count }, (_, i) => 'parts/' + name + '.part' + (i + 1));
+    const title = document.getElementById('title');
+    const hint = document.getElementById('hint');
+    const button = document.getElementById('start');
+    const status = document.getElementById('status');
+    const bar = document.getElementById('bar');
+    const manual = document.getElementById('manual');
+
+    title.textContent = isAndroid ? 'Steel Tracers для Android' : 'Steel Tracers для Windows';
+    manual.href = parts[0];
+    manual.addEventListener('click', (e) => { e.preventDefault(); showParts(); });
+
+    function showParts() {
+      status.innerHTML = '';
+      parts.forEach((p, i) => {
+        const a = document.createElement('a');
+        a.href = p;
+        a.download = name + '.part' + (i + 1);
+        a.textContent = 'часть ' + (i + 1);
+        status.appendChild(a);
+        if (i + 1 < parts.length) status.appendChild(document.createTextNode(' · '));
+      });
+    }
+
+    function setProgress(done, total, text) {
+      const pct = total > 0 ? Math.min(100, Math.round(done / total * 100)) : 0;
+      bar.style.width = pct + '%';
+      status.textContent = text + ' (' + pct + '%)';
+    }
+
+    async function streamToDisk() {
+      if (!window.showSaveFilePicker) return false;
+      let handle;
+      try {
+        handle = await showSaveFilePicker({ suggestedName: name });
+      } catch (e) {
+        if (e && e.name === 'AbortError') return true;
+        return false;
+      }
+      const writable = await handle.createWritable();
+      let total = 0;
+      for (let i = 0; i < parts.length; i++) {
+        const response = await fetch(parts[i], { cache: 'no-store' });
+        if (!response.ok) throw new Error('Не удалось скачать часть ' + (i + 1));
+        const size = Number(response.headers.get('content-length') || 0);
+        await response.body.pipeTo(writable, { preventClose: true });
+        total += size;
+        setProgress(i + 1, parts.length, 'Записано частей: ' + (i + 1) + ' из ' + parts.length);
+      }
+      await writable.close();
+      return true;
+    }
+
+    async function assembleInMemory() {
+      const blobs = [];
+      for (let i = 0; i < parts.length; i++) {
+        setProgress(i, parts.length, 'Скачивание части ' + (i + 1) + ' из ' + parts.length);
+        const response = await fetch(parts[i], { cache: 'no-store' });
+        if (!response.ok) throw new Error('Не удалось скачать часть ' + (i + 1));
+        blobs.push(await response.blob());
+        setProgress(i + 1, parts.length, 'Скачано частей: ' + (i + 1) + ' из ' + parts.length);
+      }
+      const blob = new Blob(blobs, { type: 'application/octet-stream' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+    }
+
+    async function start() {
+      button.disabled = true;
+      status.textContent = 'Подготовка…';
+      try {
+        const streamed = await streamToDisk();
+        if (!streamed) await assembleInMemory();
+        status.textContent = 'Готово. Файл сохранён.';
+        bar.style.width = '100%';
+      } catch (e) {
+        status.textContent = 'Ошибка: ' + (e && e.message ? e.message : e) + '. Попробуйте скачать части вручную.';
+        showParts();
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Скачать ещё раз';
+      }
+    }
+
+    button.addEventListener('click', start);
+  </script>
+</body>
+</html>
