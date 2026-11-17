@@ -44,7 +44,7 @@
     const isAndroid = params.get('file') === 'android';
     const name = isAndroid ? 'SteelTracers-Android.apk' : 'SteelTracers-Windows.zip';
     const count = isAndroid ? 3 : 4;
-    const base = 'https://raw.githubusercontent.com/v34687120-oss/steel-tracers/gh-pages/downloads/parts/';
+    const base = 'parts/';
     const parts = Array.from({ length: count }, (_, i) => base + name + '.part' + (i + 1));
     const title = document.getElementById('title');
     const hint = document.getElementById('hint');
