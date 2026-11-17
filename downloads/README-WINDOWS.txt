@@ -7,6 +7,9 @@ STEEL TRACERS — Windows x64
 2. Запусти SteelTracers.exe.
 3. Установка не нужна.
 
+Сайт скачивает архив частями и собирает его автоматически. Если качаешь части
+вручную, соедини их по порядку: copy /b part1+part2+part3+part4 SteelTracers-Windows.zip
+
 Если Windows SmartScreen предупреждает о неизвестном издателе:
 «Подробнее» → «Выполнить всё равно».
 
