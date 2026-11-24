@@ -5,7 +5,7 @@
  */
 window.STEEL_TRACERS_CONFIG = {
   version: "1.6.5",
-  updated: "23.11.2026",
+  updated: "24.11.2026",
   updatedIso: "2026-11-23",
   downloadUrl: "downloads/download.html?file=windows&v=173",
   downloadSize: "244 МБ",
