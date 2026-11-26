@@ -4,12 +4,12 @@
  * Ссылка на сборку может быть локальной (downloads/...) или внешней (GitHub Releases, свой сервер).
  */
 window.STEEL_TRACERS_CONFIG = {
-  version: "1.6.5",
-  updated: "24.11.2026",
-  updatedIso: "2026-11-23",
-  downloadUrl: "downloads/download.html?file=windows&v=173",
+  version: "1.6.6",
+  updated: "26.11.2026",
+  updatedIso: "2026-11-26",
+  downloadUrl: "downloads/download.html?file=windows&v=174",
   downloadSize: "244 МБ",
-  macDownloadUrl: "downloads/download.html?file=windows&v=173",
+  macDownloadUrl: "downloads/download.html?file=windows&v=174",
   macDownloadSize: "244 МБ",
   repoUrl: "",
   passwordHash: "b433fb2e2c89abc2ead1e6bc9afe056540273f4042dea5caf5e40abe36f85948"
